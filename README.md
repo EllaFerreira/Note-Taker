@@ -1,18 +1,18 @@
-# Note-Taker 📝
+# Note-Taker 📝 🤪
 
 ![license](https://img.shields.io/github/license/EllaFerreira/Note-Taker)
 ![Contributor](https://img.shields.io/badge/Contributors-1-black.svg)
-![inquirer](https://img.shields.io/badge/npm-inquirer-green.svg)
+
 ![Nodejs](https://img.shields.io/badge/AppWith-NodeJS-green.svg)
-![JavaScript](https://img.shields.io/badge/AppWith-ExpressJS-black.svg)
-![Framework](https://img.shields.io/badge/Framework-Bootstrap-yellow.svg)
+![JavaScript](https://img.shields.io/badge/AppWith-ExpressJS-yellow.svg)
+![Framework](https://img.shields.io/badge/Framework-Bootstrap-orange.svg)
 
 ## About this Project
 
-
-
+Tool build with Express js as backend.
 
 ## Mock up
+
 
 ## Content
 
@@ -30,7 +30,6 @@
 AS A small business owner
 I WANT to be able to write and save notes
 SO THAT I can organize my thoughts and keep track of tasks I need to complete
-
 ```
 
 ## Acceptance Criteria
@@ -49,14 +48,11 @@ WHEN I click on an existing note in the list in the left-hand column
 THEN that note appears in the right-hand column
 WHEN I click on the Write icon in the navigation at the top of the page
 THEN I am presented with empty fields to enter a new note title and the note’s text in the right-hand column
-
 ```
 
 ## Technologies
 
 - Node/Express js - backend;
-- Bootstrap - css library;
-- Jest - testing tool;
 - JavaScript;
 - File System;
 - Inquirer npm.
@@ -72,17 +68,9 @@ If you want to run this locally on your machine:
 - Also using the command-line now run node index
 - Start answering the questions, once is done you will see that a file name index.html was generated
 
-## Test Instructions
-
-- On the command-line run npm run test
-- Then see the results printed on the same screen
-- All the tests should pass to generate the profiles with success
 
 ## Sources
 
-[Form Validation Js](https://www.w3resource.com/javascript/form/email-validation.php)
-[Regex Generator](https://regex-generator.olafneumann.org/?sampleText=this.id%20&flags=i&onlyPatterns=false&matchWholeLine=false&selection=)
-[Jest js](https://jestjs.io/docs/getting-started)
 
 ## Project Creator
 
