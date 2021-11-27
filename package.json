@@ -16,5 +16,11 @@
   "bugs": {
     "url": "https://github.com/EllaFerreira/Note-Taker/issues"
   },
-  "homepage": "https://github.com/EllaFerreira/Note-Taker#readme"
+  "homepage": "https://github.com/EllaFerreira/Note-Taker#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.15",
+    "path": "^0.12.7"
+  }
 }
