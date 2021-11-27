@@ -4,6 +4,11 @@ const path = require("path");
 const port = process.env.PORT || 3001;
 const app = express();
 
+//middleware
+app.use(express.static("public"));
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
+
 //get req
 app.get("/", (req, res) => {
   res.send("Hello, click here to start!");
@@ -17,7 +22,7 @@ app.get("api/notes", (req, res) => {
       console.error(err);
     } else {
       const parseNotes = JSON.parse(data);
-      response.JSON(parseNotes);
+      response.json(parseNotes);
     }
   });
 });
@@ -26,7 +31,7 @@ app.get("api/notes", (req, res) => {
 app.post("/api/notes", (req, res) => {
   const { title, text } = req.body;
   const createNote = { title, text, id: uniqid() };
-  response.JSON(createNote);
+  response.json(createNote);
 });
 fs.readFile("./db/db.json", "UTF-8", (err, data) => {
   if (err) {
@@ -55,18 +60,13 @@ fs.readFile("./db/db.json", "UTF-8", (err, data) => {
   } else {
     const parseNotes = JSON.parse(data);
     const deleted = parseNotes.filter(notId);
-    response.JSON(deleted);
+    response.json(deleted);
 
     fs.writeFile("./db/db.json", JSON.stringify(deleted), (writeErr) =>
       writeErr ? console.error(writeErr) : console.info("Note deleted!")
     );
   }
 });
-
-//middleware
-app.use(express.static("public"));
-app.use(express.urlencoded({ extended: false }));
-app.use(express.json());
 
 app.listen(port, () => {
   console.log(`App runing at http://localhost:${port}`);
