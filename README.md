@@ -2,14 +2,19 @@
 
 ![license](https://img.shields.io/github/license/EllaFerreira/Note-Taker)
 ![Contributor](https://img.shields.io/badge/Contributors-1-black.svg)
-
 ![Nodejs](https://img.shields.io/badge/AppWith-NodeJS-green.svg)
 ![JavaScript](https://img.shields.io/badge/AppWith-ExpressJS-yellow.svg)
-![Framework](https://img.shields.io/badge/Framework-Bootstrap-orange.svg)
+
 
 ## About this Project
 
-Tool build with Express js as backend.
+This assessement was to modifify a starter code and create a app called Note Taker that can be used to write, save and delete notes.
+
+Also, first app deployed on Heroku 😬
+
+
+## Deploy Link
+
 
 ## Mock up
 
@@ -19,8 +24,6 @@ Tool build with Express js as backend.
 - [User Story](#user-story)
 - [Acceptance Criteria](#acceptance-criteria)
 - [Technologies](#technologies)
-- [Installation](#installation)
-- [Test Instructions](#test-instructions)
 - [Sources](#sources)
 - [Project Creator](#project-creator)
 
@@ -55,22 +58,11 @@ THEN I am presented with empty fields to enter a new note title and the note’s
 - Node/Express js - backend;
 - JavaScript;
 - File System;
-- Inquirer npm.
-
-## Installation
-
-If you want to run this locally on your machine:
-
-- Clone to your local machine from this repo
-- Open the repo in your code editor (vs code for example)
-- Open with F12 the command-line
-- Run npm install on the terminal to install the packages, when it's done
-- Also using the command-line now run node index
-- Start answering the questions, once is done you will see that a file name index.html was generated
-
+- Path npm package;
 
 ## Sources
 
+[Express](https://expressjs.com/en/starter/hello-world.html)
 
 ## Project Creator
 
