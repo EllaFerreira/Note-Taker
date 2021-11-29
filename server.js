@@ -3,6 +3,7 @@ const fs = require("fs");
 const path = require("path");
 const port = process.env.PORT || 3001;
 const app = express();
+var uniqid = require("uniqid");
 
 //middleware
 app.use(express.static("public"));
@@ -11,7 +12,7 @@ app.use(express.json());
 
 //get req
 app.get("/", (req, res) => {
-  res.send("Hello, click here to start!");
+  res.sendFile(path.join(__dirname, "/public/index.html"));
 });
 app.get("/notes", (req, res) => {
   res.sendFile(path.join(__dirname, "public/notes.html"));
@@ -22,7 +23,7 @@ app.get("api/notes", (req, res) => {
       console.error(err);
     } else {
       const parseNotes = JSON.parse(data);
-      response.json(parseNotes);
+      res.json(parseNotes);
     }
   });
 });
@@ -31,7 +32,7 @@ app.get("api/notes", (req, res) => {
 app.post("/api/notes", (req, res) => {
   const { title, text } = req.body;
   const createNote = { title, text, id: uniqid() };
-  response.json(createNote);
+  res.json(createNote);
 
   fs.readFile("./db/db.json", "UTF-8", (err, data) => {
     if (err) {
@@ -60,7 +61,7 @@ app.delete("./api/notes/:id", (req, res) => {
     } else {
       const parseNotes = JSON.parse(data);
       const deleted = parseNotes.filter(notId);
-      response.json(deleted);
+      res.json(deleted);
 
       fs.writeFile("./db/db.json", JSON.stringify(deleted), (writeErr) =>
         writeErr ? console.error(writeErr) : console.info("Note deleted!")
@@ -70,5 +71,5 @@ app.delete("./api/notes/:id", (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`App runing at http://localhost:${port}`);
+  console.log(`App runing at http://localhost:${port} 🚀`);
 });

@@ -10,13 +10,14 @@
 
 This assessement was to modifify a starter code and create a app called Note Taker that can be used to write, save and delete notes.
 
-Also, first app deployed on Heroku 😬
+Also, first app deployed on Heroku 😬 
 
 
 ## Deploy Link
 
 
 ## Mock up
+
 
 
 ## Content
