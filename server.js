@@ -1,75 +1,75 @@
+// Declare variables and require node packages
 const express = require("express");
 const fs = require("fs");
 const path = require("path");
-const port = process.env.PORT || 3001;
-const app = express();
 var uniqid = require("uniqid");
 
-//middleware
+const app = express();
+const PORT = process.env.PORT || 3001;
+
+// Middleware
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-//get req
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "/public/index.html"));
+// GET request
+app.get("/", (request, response) => response.send("Click here to start"));
+
+app.get("/notes", (request, response) => {
+  response.sendFile(path.join(__dirname, "public/notes.html"));
 });
-app.get("/notes", (req, res) => {
-  res.sendFile(path.join(__dirname, "public/notes.html"));
-});
-app.get("api/notes", (req, res) => {
+
+app.get("/api/notes", (request, response) => {
   fs.readFile("./db/db.json", "UTF-8", (err, data) => {
     if (err) {
       console.error(err);
     } else {
-      const parseNotes = JSON.parse(data);
-      res.json(parseNotes);
+      const parsedNotes = JSON.parse(data);
+      response.json(parsedNotes);
     }
   });
 });
 
-//post req
-app.post("/api/notes", (req, res) => {
-  const { title, text } = req.body;
-  const createNote = { title, text, id: uniqid() };
-  res.json(createNote);
+// POST request
+app.post("/api/notes", (request, response) => {
+  const { title, text } = request.body;
+  const newNote = { title, text, id: uniqid() };
+  response.json(newNote);
 
   fs.readFile("./db/db.json", "UTF-8", (err, data) => {
     if (err) {
       console.error(err);
     } else {
-      const parseNotes = JSON.parse(data);
-      parseNotes.push(createNote);
+      const parsedNotes = JSON.parse(data);
+      parsedNotes.push(newNote);
 
-      fs.writeFile("./db/db.json", JSON.stringify(parseNotes), (writeErr) =>
-        writeErr
-          ? console.error(writeErr)
-          : console.info("Note added sucessfully!")
+      fs.writeFile("./db/db.json", JSON.stringify(parsedNotes), (writeErr) =>
+        writeErr ? console.error(writeErr) : console.info("Note added. ")
       );
     }
   });
 });
 
-//delete req
-app.delete("./api/notes/:id", (req, res) => {
-  const deleteById = req.params.id;
-  const notId = (i) => i.id != deleteById;
+// DELETE request
+app.delete("/api/notes/:id", (request, response) => {
+  const deletedId = request.params.id;
+  const isNotId = (i) => i.id != deletedId;
 
   fs.readFile("./db/db.json", "UTF-8", (err, data) => {
     if (err) {
       console.error(err);
     } else {
-      const parseNotes = JSON.parse(data);
-      const deleted = parseNotes.filter(notId);
-      res.json(deleted);
+      const parsedNotes = JSON.parse(data);
+      const isDeleted = parsedNotes.filter(isNotId);
+      response.json(isDeleted);
 
-      fs.writeFile("./db/db.json", JSON.stringify(deleted), (writeErr) =>
-        writeErr ? console.error(writeErr) : console.info("Note deleted!")
+      fs.writeFile("./db/db.json", JSON.stringify(isDeleted), (writeErr) =>
+        writeErr ? console.error(writeErr) : console.info("Note deleted. ")
       );
     }
   });
 });
 
-app.listen(port, () => {
-  console.log(`App runing at http://localhost:${port} 🚀`);
-});
+app.listen(PORT, () =>
+  console.log(`App listening at http://localhost:${PORT} 🚀`)
+);
