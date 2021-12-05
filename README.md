@@ -3,7 +3,7 @@
 ![license](https://img.shields.io/github/license/EllaFerreira/Note-Taker)
 ![Contributor](https://img.shields.io/badge/Contributors-1-black.svg)
 ![Nodejs](https://img.shields.io/badge/AppWith-NodeJS-green.svg)
-![JavaScript](https://img.shields.io/badge/AppWith-ExpressJS-yellow.svg)
+![Express](https://img.shields.io/badge/AppWith-ExpressJS-yellow.svg)
 
 ## About this Project
 
@@ -13,9 +13,10 @@ Also, first app deployed on Heroku 😬
 
 ## Deploy Link
 
+
 ## Mock up
 
-![mockup](./public/assets/img/11-express-homework-demo-01.png)
+![mockup](https://media.giphy.com/media/dhmlIXQz2w9KePu1WY/giphy.gif)
 
 ## Content
 
